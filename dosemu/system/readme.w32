@@ -1,0 +1,68 @@
+これは SWORD for UNIX version 0.4+ (beta) をWin32環境にポーティングした
+実行オブジェクトを含むパッケージです。
+配布条件は GPL に従います。無保証です。
+
+使用方法等はオリジナルの UNIX version に準じますので そちらのREADME を参照して
+ください。ここでは Win32 版に関する特記事項を説明します。
+
+
+・パッケージ
+
+このパッケージには以下のファイルが含まれています。
+
+	SOS.EXE		Win32 環境で動作するエミュレータ本体
+	SWORD.BIN	全機種共通 DOS モジュール
+	SOS.INI		環境記述ファイル
+	CYGWIN1.DLL	CYGNUS 提供DLL
+	SOURCE		オリジナルソースファイル
+	README.W32	このファイル
+
+
+・インストール
+
+UNIX version ではコンパイルできる環境が必要になりますが、Win32 版では
+すぐ実行できるバイナリを添付していますので、自分で改造する場合以外は
+特別な環境を用意する必要はありません。
+
+適当なディレクトリを作って、その中に次のファイルをコピーしてください。
+
+	SOS.EXE
+	SWORD.BIN
+	SOS.INI
+	CYGWIN1.DLL
+
+例えばエクスプローラから sos.exe をダブルクリックすれば DOS 互換 BOX
+が開いて、その中でメッセージとともに S-OS "SWORD" が立ち上がっている
+と思います。なお、見た目は DOS アプリのようではありますが、純粋な DOS
+では動作しません。
+
+あとはスタートメニューに登録したりデスクトップにショートカットを置いたり
+して便利にお使いください。
+
+
+・カスタマイズ
+
+UNIX 版で .sosrc という名称になっている初期化ファイルは、sos.ini に変更
+しています。
+キーコントロールの設定はデフォルトでは WordMaster ライク (正確には WINER
+準拠) になっています。
+
+
+・Win32 版の作成について
+
+この実行バイナリは Cygnus 社の GNU ツール群である Cygwin32 beta20.1 に
+よって作成しました。バイナリの作成には termcap.h が必要なので、もしない場合は
+次の URL の解説に従って termcap をインストールしてください。
+
+http://www.netlaputa.ne.jp/~kose/Software/compile/index.html#termcap
+
+もちろん実行時には必要ありません。
+
+またこの実行バイナリの作成には、configure のオプションを次のようにしています。
+
+configure --with-forceansi --with-rcfile=sos.ini --with-wmkeymap
+
+
+1999 / 4 / 9
+Ｏｈ！石 @ Nibbles lab.
+(ohishi.nobuaki@nifty.ne.jp)
